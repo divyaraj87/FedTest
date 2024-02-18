@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const http = require('../utils/api');
+const http = require('../utils/httpclient');
 const constants = require('../constants/index');
 
 const {SEARCH_ADDRESS} = constants;
@@ -8,16 +8,15 @@ const {SEARCH_ADDRESS} = constants;
 router.get('/addresses', async function(req, res){
     try {
         const { query: { postcode } } = req;
-        let items = [];
+        let addresses = [];
         if(postcode) {
             const response = await http.get(`${SEARCH_ADDRESS}?query=${postcode}`);
             const { results } = response.data;
-            items = results;
+            addresses = results;
         }
-        res.render('../views/addresses.njk', { items });
+        res.render('../views/addresses.njk', { addresses });
     } catch (error) {
         console.log(error);
-        // Can have a common handler to render errr-or page
     }
 })
 

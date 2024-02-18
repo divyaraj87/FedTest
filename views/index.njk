@@ -9,16 +9,16 @@
 {% block content %}
   <h1 class="govuk-heading-xl">Address lookup</h1>
   <div class="govuk-form-group">
-  <form method="GET" action="/addresses">
-    <label class="govuk-label" for="postcode">
-      Enter a postcode
-    </label>
-    <input class="govuk-input govuk-input--width-10" id="postcode" name="postcode" type="text" required>
+    <form method="GET" action="/addresses">
+      <label class="govuk-label" for="postcode">
+        Enter a postcode
+      </label>
+      <input class="govuk-input govuk-input--width-10" id="postcode" name="postcode" type="text" pattern="[A-Za-z]{1,2}[0-9Rr][0-9A-Za-z]?[0-9][ABD-HJLNP-UW-Zabd-hjlnp-uw-z]{2}" title="Enter a valid UK postcode" required>
     </div>
     <button class="govuk-button govuk-button--secondary" data-module="govuk-button">
       Find address
     </button>
-    </form> 
+    </form>
 {% endblock %}
 
 {% block bodyEnd %}

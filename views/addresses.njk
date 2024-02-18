@@ -14,7 +14,7 @@
       Choose an address
     </label>
     <select class="govuk-select" id="subject" name="subject" aria-describedby="subject-hint">
-    {% for item in items %}
+    {% for item in addresses %}
       <option value="{{item.GAZETTEER_ENTRY.NAME1}}">{{item.GAZETTEER_ENTRY.NAME1}}</option>
     {% endfor %}
     </select>
